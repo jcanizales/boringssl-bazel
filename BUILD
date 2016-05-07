@@ -53,3 +53,19 @@ cc_library(
         ":crypto",
     ],
 )
+
+objc_library(
+    name = "objc_ssl",
+    srcs = ssl_sources + ssl_internal_headers + crypto_sources + crypto_internal_headers,
+    hdrs = [
+        ":crypto_hdrs",
+        ":ssl_hdrs",
+    ],
+    copts = [
+        "-DOPENSSL_NO_ASM",
+        "-Wno-shorten-64-to-32",
+    ],
+    includes = [
+        "src/include",
+    ],
+)
