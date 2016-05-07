@@ -65,4 +65,5 @@ objc_library(
     includes = [
         "src/include",
     ],
+    visibility = ["//visibility:public"],
 )
